@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public Camera mainCamera;
+    public Camera hoodCamera;
+    public KeyCode switchKey;
+
+    public string inputID;
+
     private float speed = 15.0f;
     private float turnSpeed = 50.0f;
     private float horizontalInput;
@@ -19,8 +25,8 @@ public class PlayerController : MonoBehaviour
     void Update()
     {   
         // Getting user input
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
+        horizontalInput = Input.GetAxis("Horizontal" + inputID);
+        verticalInput = Input.GetAxis("Vertical" + inputID);
 
         // Move the vehicle forward
         transform.Translate(Vector3.forward * Time.deltaTime * speed * verticalInput);
@@ -33,6 +39,12 @@ public class PlayerController : MonoBehaviour
         } else if (verticalInput < 0)
         {
             transform.Rotate(Vector3.down * Time.deltaTime * turnSpeed * horizontalInput);
+        }
+
+        if (Input.GetKeyDown(switchKey))
+        {
+            mainCamera.enabled = !mainCamera.enabled;
+            hoodCamera.enabled = !hoodCamera.enabled;
         }
     }
 }
