@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// For controlling the first player.
 public class PlayerController : MonoBehaviour
 {
     private float speed = 15.0f;
@@ -25,7 +26,7 @@ public class PlayerController : MonoBehaviour
         // Move the vehicle forward
         transform.Translate(Vector3.forward * Time.deltaTime * speed * verticalInput);
 
-        // Move the vehicle sideward only if speed is not 0
+        // Rotate the vehicle sideward only if speed is not 0
 
         if (verticalInput > 0)
         {

@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// For controlling the second vehicle. Same as first vehicle.
+
 public class SecondPlayerController : MonoBehaviour
 {
     private float speed = 15.0f;
